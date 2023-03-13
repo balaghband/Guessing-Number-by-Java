@@ -1,0 +1,59 @@
+import java.util.Random;
+import java.util.Scanner;
+
+/**This project is a game for guessing number till
+ * your guessed number and computer number matches.
+ * @author Behnoud Alaghband
+ */
+public class GuessNumber {
+    /**after calling scanner and random, username is asked to enter
+     * his/her name.Computer finds a random number and user is asked
+     * to choose a number between 1 and 10. User should keep guessing
+     * until his/her number matches to computer number.
+     */
+
+    public static void main (String[] args) {
+        //Random rand is called to be activated for computer guess
+        Random rand = new Random();
+        // Scanner is called for Name of user could be entered
+        Scanner scanner = new Scanner(System.in);
+        // Name of user is asked for calling in next line
+        System.out.println("Enter username: ");
+        // Name of user is assigned to variable called userName
+        String userName = scanner.nextLine();
+        // user is asked to guess a number by his/her name
+        System.out.println("Guess a number " + userName);
+
+        //a random number is called by the computer but remains hidden from the user
+        int randomNumber = rand.nextInt(10) + 1;
+        //System.out.println("Random Number is " + randomNumber);
+
+
+
+        // by while loop, user continues guessing until wins
+        while(true) {
+            // user should enter his/her guess here between 1 and 10
+            System.out.println("Enter your guess" + " (1 - 10): ");
+            // user guess is assigned to playerGuess
+            int playerGuess = scanner.nextInt();
+
+
+            // user wins if his/her guess would be equal to computer number
+            if (playerGuess == randomNumber) {
+                System.out.println("Correct! You Win!");
+                // the game will stop after winning */
+                break;
+            }
+            // if user number is greater than computer number, user should guess again
+            else if (randomNumber > playerGuess) {
+                System.out.println("Nope! The number is higher. Guess again.");
+            }
+            // if user number is lower than computer number, user should guess again
+            else {
+                System.out.println("Nope! The number is lower. Guess again.");
+            }
+        }
+
+    }
+
+}
